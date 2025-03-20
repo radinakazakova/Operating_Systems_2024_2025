@@ -1,0 +1,9 @@
+Колко файлове в /bin са 'shell script'-oве? (Колко файлове в дадена директория са ASCII text?)
+
+find /bin | xargs -I{} file {} | grep "shell script" | wc -l #file връща вид на файла
+
+#или
+
+find /bin -type f -exec cat {} \; | grep "#!/bin/" | wc -l
+
+(find /bin | xargs -I{} file {} | grep "ASCII text executable" | wc -l)
